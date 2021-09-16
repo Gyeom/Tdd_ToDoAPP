@@ -1,7 +1,7 @@
 package com.study.todolist
 
 import android.app.Application
-import aop.fastcampus.part5.chapter01.di.appModule
+import com.study.todolist.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

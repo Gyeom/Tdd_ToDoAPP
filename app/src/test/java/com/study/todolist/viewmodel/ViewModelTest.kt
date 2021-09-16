@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import com.study.todolist.di.appModule
+import com.study.todolist.di.appTestModule
 import com.study.todolist.livedata.LiveDataTestObserver
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -41,7 +42,7 @@ internal abstract class ViewModelTest: KoinTest {
     fun setup() {
         startKoin {
             androidContext(context)
-            modules(appModule)
+            modules(appTestModule)
         }
         Dispatchers.setMain(dispatcher)
     }
