@@ -1,7 +1,9 @@
 package com.study.todolist.di
 
+import com.study.todolist.domain.todo.DeleteAllToDoItemUseCase
 import com.study.todolist.domain.todo.GetToDoListUseCase
 import com.study.todolist.domain.todo.InsertToDoListUseCase
+import com.study.todolist.domain.todo.UpdateToDoItemUseCase
 import com.study.todolist.presentation.list.ListViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.viewmodel.dsl.viewModel
@@ -13,6 +15,8 @@ internal val appModule = module {
 
     factory { GetToDoListUseCase(get()) }
     factory { InsertToDoListUseCase(get()) }
+    factory { UpdateToDoItemUseCase(get()) }
+    factory { DeleteAllToDoItemUseCase(get()) }
 
-    viewModel { ListViewModel(get()) }
+    viewModel { ListViewModel(get(), get(), get()) }
 }
