@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.study.todolist.data.entity.ToDoEntity
 import com.study.todolist.domain.todo.DeleteAllToDoItemUseCase
 import com.study.todolist.domain.todo.GetToDoListUseCase
+import com.study.todolist.domain.todo.InsertToDoListUseCase
 import com.study.todolist.domain.todo.UpdateToDoItemUseCase
 import com.study.todolist.presentation.BaseViewModel
 import kotlinx.coroutines.Job
@@ -19,6 +20,14 @@ internal class ListViewModel(
 ): BaseViewModel() {
     private var _toDoListLiveData = MutableLiveData<ToDoListState>(ToDoListState.UnInitialized)
     val toDoListLiveData: LiveData<ToDoListState> = _toDoListLiveData
+    private val mockList = (0 until 10).map {
+        ToDoEntity(
+            id = it.toLong(),
+            title = "title $it",
+            description = "description $it",
+            hasCompleted = false
+        )
+    }
 
     override fun fetchData(): Job = viewModelScope.launch {
         _toDoListLiveData.postValue(ToDoListState.Loading)

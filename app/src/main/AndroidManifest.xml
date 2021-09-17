@@ -11,7 +11,7 @@
         android:name=".ToDoApplication"
         android:theme="@style/Theme.ToDoList">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.list.ListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
